@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.marcinorlowski.fonty.Fonty
 
-class SplashScreenActivity : AppCompatActivity() {
+class SplashScreenActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
