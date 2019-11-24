@@ -1,10 +1,8 @@
 package com.developer.eduica
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.marcinorlowski.fonty.Fonty
+import org.jetbrains.anko.startActivity
 
 class SplashScreenActivity : BaseActivity() {
 
@@ -15,9 +13,11 @@ class SplashScreenActivity : BaseActivity() {
 //        Fonty.setFonts(this)
 
         Handler().postDelayed({
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
+            //            val intent = Intent(this, WelcomeActivity::class.java)
+//            startActivity(intent)
+            startActivity<WelcomeActivity>()
             finish()
+
         }, 2000)
 
     }

@@ -4,4 +4,6 @@
     <string name="get_started">Get Started</string>
     <string name="welcome_desc">Dapatkan teman belajar terbaikmu untuk membantu memahami materi belajar dengan mudah, cepat dan menyenangkan</string>
     <string name="welcome">Welcome!!</string>
+    <string name="skip">Skip</string>
+    <string name="finish">Finish</string>
 </resources>
