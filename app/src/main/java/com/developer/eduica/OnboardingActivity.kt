@@ -1,20 +1,18 @@
 package com.developer.eduica
 
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
-import android.text.Html
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.text.HtmlCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_onboarding.*
+
 
 class OnboardingActivity : AppCompatActivity() {
 
@@ -34,6 +32,7 @@ class OnboardingActivity : AppCompatActivity() {
         viewPagerAdapter = MyViewPagerAdapter(layouts, applicationContext)
 
         addBottomDots(0)
+        showTitleAndDesc(0)
 
         view_pager.adapter = viewPagerAdapter
         view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -49,30 +48,57 @@ class OnboardingActivity : AppCompatActivity() {
 
             override fun onPageSelected(position: Int) {
                 addBottomDots(position)
+                showTitleAndDesc(position)
             }
         })
+    }
+
+    private fun showTitleAndDesc(position: Int) {
+        when (position) {
+            0 -> {
+                txt_onboard_title.text = getString(R.string.onboard_title_1)
+                txt_onboard_desc.text = getString(R.string.onboard_desc_1)
+                btn_finish.visibility = View.GONE
+                btn_skip.visibility = View.VISIBLE
+            }
+            1 -> {
+                txt_onboard_title.text = getString(R.string.onboard_title_2)
+                txt_onboard_desc.text = getString(R.string.onboard_desc_2)
+                btn_finish.visibility = View.GONE
+                btn_skip.visibility = View.VISIBLE
+            }
+            2 -> {
+                txt_onboard_title.text = getString(R.string.onboard_title_3)
+                txt_onboard_desc.text = getString(R.string.onboard_desc_3)
+                btn_finish.visibility = View.GONE
+                btn_skip.visibility = View.VISIBLE
+            }
+            else -> {
+                txt_onboard_title.text = getString(R.string.onboard_title_4)
+                txt_onboard_desc.text = getString(R.string.onboard_desc_4)
+                btn_finish.visibility = View.VISIBLE
+                btn_skip.visibility = View.GONE
+            }
+        }
     }
 
     private fun addBottomDots(position: Int) {
         linear_dots.removeAllViews()
 
         for (pos in 1..viewPagerAdapter.count) {
-            val txt = TextView(this)
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                txt.text = Html.fromHtml("&#8226;", HtmlCompat.FROM_HTML_MODE_LEGACY)
-            } else {
-                @Suppress("DEPRECATION")
-                txt.text = Html.fromHtml("&#8226;")
-
-            }
-            txt.textSize = 35f
-            txt.setTextColor(ContextCompat.getColor(this, R.color.inactive_dot))
+            val img = ImageView(this)
+            val lp = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            lp.setMargins(15, 0, 15, 0)
+            img.layoutParams = lp
 
             if (pos - 1 == position)
-                txt.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
-
-            linear_dots.addView(txt)
+                img.setImageResource(R.drawable.ic_dot_active)
+            else
+                img.setImageResource(R.drawable.ic_dot_inactive)
+            linear_dots.addView(img)
         }
     }
 
