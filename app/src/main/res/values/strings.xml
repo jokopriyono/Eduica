@@ -16,4 +16,10 @@
     <string name="onboard_desc_2">Tentukan waktu dan tempat untuk belajar yang kamu suka</string>
     <string name="onboard_desc_3">Pilihlah pengajar dari eduica karena kami menyediakan pengajar yang hebat serta menyenangkan</string>
     <string name="onboard_desc_4">Pengajar kamu akan datang pada jadwal yang kamu buat</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Ingatkan saya akun ini</string>
+    <string name="forget_password">Lupa Password?</string>
 </resources>
