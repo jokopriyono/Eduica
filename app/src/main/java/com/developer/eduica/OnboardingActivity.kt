@@ -1,6 +1,7 @@
 package com.developer.eduica
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -51,6 +52,16 @@ class OnboardingActivity : AppCompatActivity() {
                 showTitleAndDesc(position)
             }
         })
+        btn_finish.setOnClickListener {
+            val i = Intent(applicationContext, AuthActivity::class.java)
+            startActivity(i)
+            finish()
+        }
+        btn_skip.setOnClickListener {
+            val i = Intent(applicationContext, AuthActivity::class.java)
+            startActivity(i)
+            finish()
+        }
     }
 
     private fun showTitleAndDesc(position: Int) {
