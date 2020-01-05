@@ -100,6 +100,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="30dp"
                         android:layout_marginEnd="20dp"
+                        app:hintEnabled="false"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -123,7 +124,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
+                        app:hintEnabled="false"
                         app:layout_constraintStart_toStartOf="@id/input_username"
                         app:layout_constraintTop_toBottomOf="@id/input_username">
 
@@ -147,7 +150,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
+                        app:hintEnabled="false"
                         app:layout_constraintTop_toBottomOf="@id/input_email"
                         app:passwordToggleEnabled="true">
 
@@ -171,7 +176,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
+                        app:hintEnabled="false"
                         app:layout_constraintTop_toBottomOf="@id/input_password"
                         app:passwordToggleEnabled="true">
 
@@ -279,6 +286,7 @@
                         android:id="@+id/txt_login_with"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
                         android:fontFamily="@font/poppins"
                         android:text="@string/login_with"
                         android:textColor="@android:color/black"
