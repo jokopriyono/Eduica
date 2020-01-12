@@ -29,4 +29,8 @@
     <string name="text_3"> and </string>
     <string name="text_4"><![CDATA[Term & Condition]]></string>
     <string name="login_with">Masuk dengan</string>
+    <string name="insert_email">Masukan Alamat Email</string>
+    <string name="description">Kamu akan mendapatkan sebuah link yang di dalamnya terdapat kode verifikasi untuk membuat password baru</string>
+    <string name="resend_verification">Kirim ulang kode verifikasi</string>
+    <string name="next">Next</string>
 </resources>
