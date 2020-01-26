@@ -30,6 +30,9 @@ class AuthActivity : AppCompatActivity() {
         btn_sign.setOnClickListener {
             if (isSignIn) signInValidation()
         }
+        txt_forget_password.setOnClickListener {
+            startActivity(Intent(this, ForgetPasswordActivity::class.java))
+        }
     }
 
     private fun signInValidation() {
