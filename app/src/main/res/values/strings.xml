@@ -33,4 +33,7 @@
     <string name="description">Kamu akan mendapatkan sebuah link yang di dalamnya terdapat kode verifikasi untuk membuat password baru</string>
     <string name="resend_verification">Kirim ulang kode verifikasi</string>
     <string name="next">Next</string>
+    <string name="title_forget">Password Telah Diatur Ulang</string>
+    <string name="desc_forget">Kamu akan mendapatkan sebuah link pada email kamu untuk mengatur password baru</string>
+    <string name="done">Done</string>
 </resources>
