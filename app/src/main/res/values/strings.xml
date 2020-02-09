@@ -37,4 +37,8 @@
     <string name="desc_forget">Kamu akan mendapatkan sebuah link pada email kamu untuk mengatur password baru</string>
     <string name="done">Done</string>
     <string name="send_verification">Kirim email verifikasi</string>
+    <string name="select_account">Pilih Akun Belajar</string>
+    <string name="search_student">Cari Siswa</string>
+    <string name="warning_desc">Maaf anda belum memiliki akun belajar, silahkan membuat akun belajar terlebih dahulu</string>
+    <string name="account_study">Akun Belajar</string>
 </resources>

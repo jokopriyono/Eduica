@@ -43,7 +43,7 @@ class AuthActivity : AppCompatActivity() {
         val inputanPassword = edt_password.text.toString().trim()
 
         if (inputanUsername == username && inputanPassword == password) {
-            val intent = Intent(applicationContext, SelectAccountActivity::class.java)
+            val intent = Intent(applicationContext, AccountActivity::class.java)
             startActivity(intent)
         } else {
             toast("Username atau password tidak sesuai!")
