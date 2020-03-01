@@ -41,4 +41,16 @@
     <string name="search_student">Cari Siswa</string>
     <string name="warning_desc">Maaf anda belum memiliki akun belajar, silahkan membuat akun belajar terlebih dahulu</string>
     <string name="account_study">Akun Belajar</string>
+    <string name="add_account">Tambah Akun Belajar</string>
+    <string name="student_photo">Foto Siswa</string>
+    <string name="study_account">Akun Belajar</string>
+    <string name="student">Pelajar</string>
+    <string name="college">Mahasiswa</string>
+    <string name="select_account_type">Pilih Jenis Akun</string>
+    <string name="full_name">Nama Lengkap</string>
+    <string name="_62">+62</string>
+    <string name="dummy_number">859 - XXX - XXX</string>
+    <string name="phone_number">Nomor Handphone</string>
+    <string name="full_address">Alamat Lengkap</string>
+    <string name="address">Alamat Rumah</string>
 </resources>
