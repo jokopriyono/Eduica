@@ -4,12 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View.*
 import androidx.appcompat.app.AppCompatActivity
+import com.developer.eduica.models.bodies.LoginBody
+import com.developer.eduica.models.responses.LoginResponse
 import kotlinx.android.synthetic.main.activity_auth.*
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AuthActivity : AppCompatActivity() {
 
     private var isSignIn = true
+    private val client = ApiClient().getRetrofit().create(ApiService::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,15 +43,40 @@ class AuthActivity : AppCompatActivity() {
     }
 
     private fun signInValidation() {
-        val username = "siswa123"
-        val password = "eduica123"
-
         val inputanUsername = edt_username.text.toString().trim()
         val inputanPassword = edt_password.text.toString().trim()
 
-        if (inputanUsername == username && inputanPassword == password) {
-            val intent = Intent(applicationContext, AccountActivity::class.java)
-            startActivity(intent)
+        if (inputanUsername.isNotEmpty() && inputanPassword.isNotEmpty()) {
+            val body = LoginBody(email = inputanUsername, password = inputanPassword)
+            val callLogin = client.login(body)
+            toast("Start login . . .")
+            callLogin.enqueue(object : Callback<LoginResponse> {
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    // gagal disini
+                    toast(t.localizedMessage)
+                }
+
+                override fun onResponse(
+                    call: Call<LoginResponse>,
+                    response: Response<LoginResponse>
+                ) {
+                    // sukses disini
+                    if (response.isSuccessful) {
+                        longToast("Sukses login")
+                        val intent = Intent(applicationContext, AccountActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        response.body()?.let {
+                            longToast("Gagal login: ${it.code}")
+                        }
+                        if (response.body() == null) {
+                            longToast("Response body null")
+                        }
+                    }
+                }
+
+            })
+
         } else {
             toast("Username atau password tidak sesuai!")
         }
