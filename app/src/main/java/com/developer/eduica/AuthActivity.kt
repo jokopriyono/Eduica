@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import com.developer.eduica.models.bodies.LoginBody
 import com.developer.eduica.models.responses.LoginResponse
 import kotlinx.android.synthetic.main.activity_auth.*
+import org.jetbrains.anko.defaultSharedPreferences
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 import retrofit2.Call
@@ -49,7 +51,6 @@ class AuthActivity : AppCompatActivity() {
         if (inputanUsername.isNotEmpty() && inputanPassword.isNotEmpty()) {
             val body = LoginBody(email = inputanUsername, password = inputanPassword)
             val callLogin = client.login(body)
-            toast("Start login . . .")
             callLogin.enqueue(object : Callback<LoginResponse> {
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                     // gagal disini
@@ -62,7 +63,16 @@ class AuthActivity : AppCompatActivity() {
                 ) {
                     // sukses disini
                     if (response.isSuccessful) {
-                        longToast("Sukses login")
+                        val res = response.body()?.dataLogin
+                        defaultSharedPreferences.edit {
+                            putBoolean("isLogged", true)
+                            putString("token", res?.token?.accessToken)
+                            putString("idUser", res?.idUser.toString())
+                            putString("email", res?.email)
+                            putString("fullName", res?.fullName)
+                            putString("userName", res?.username)
+                            apply()
+                        }
                         val intent = Intent(applicationContext, AccountActivity::class.java)
                         startActivity(intent)
                     } else {
